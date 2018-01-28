@@ -19,7 +19,19 @@ function daveSpeak(daveSays) {
 
 // create a function for HAL to respond to Dave's messages with variable logic based upon
 // Dave's inputs
+function halRespond(daveSays) {
 
+}
+
+function halSpeak(halSays) {
+  hal.innerHTML = '<div class="chat-line">' + halSays + '</div>' + hal.innerHTML;
+}
 // create a function for HAL to open the chat with "Good morning, Dave"
+function goodMorning() {
+  halSpeak("Good morning, Dave");
+}
 
 // invoke the opening message
+window.onload = function() {
+  goodMorning();
+};
