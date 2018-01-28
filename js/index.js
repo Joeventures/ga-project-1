@@ -8,9 +8,14 @@ var hal = document.getElementById('hal');
 // add an event listener to the form to submit Dave's message
 chatForm.addEventListener("submit", function(e) {
   e.preventDefault();
-  daveSays = chatInput.value;
+  var daveSays = chatInput.value;
   chatInput.value = "";
+  daveSpeak(daveSays);
 });
+
+function daveSpeak(daveSays) {
+  dave.innerHTML = '<div class="chat-line">' + daveSays + '</div>' + dave.innerHTML;
+}
 
 // create a function for HAL to respond to Dave's messages with variable logic based upon
 // Dave's inputs
