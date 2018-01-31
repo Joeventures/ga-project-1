@@ -29,6 +29,16 @@ var classMates = {
   "Sonyl": "New York City"
 };
 
+var quotes = [
+  "Dive into the sea of thought, and find there pearls beyond price",
+  "A man is not idle because he is absorbed in thought. There is a visible labor and there is an invisible labor",
+  "Always do right. This will gratify some people and astonish the rest",
+  "If we have the opportunity to be generous with our hearts, ourselves, we have no idea of the depth and breadth of love's reach",
+  "Nothing is so good for an ignorant man as silence; and if he was sensible of this he would not be ignorant",
+  "You always pass failure on the way to success",
+  "Management is nothing more than motivating other people"
+];
+
 // add an event listener to the form to submit Dave's message
 chatForm.addEventListener("submit", function(e) {
   e.preventDefault();
@@ -49,7 +59,9 @@ function halRespond(daveSays) {
   weatherAsk = includesClassmate(daveSays);
   if(weatherAsk) {
     city = classMates[weatherAsk];
-    response = "Ask " + weatherAsk + " how the weather is in " + city + "!";
+    response = "Dave, ask " + weatherAsk + " how the weather is in " + city + "!";
+  } else if(Math.random() < 0.25) {
+    response = randomQuote() + ", Dave.";
   }
   halSpeak(response);
 }
@@ -62,6 +74,10 @@ function includesClassmate(daveSays) {
     }
   });
   return result;
+}
+
+function randomQuote() {
+  return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 function halSpeak(halSays) {
